@@ -5,9 +5,9 @@ Customizable quiz judger of NTU COOL.
 ## Usage
 
 ```bash
-python3 src/general_judger.py \
-        SOURCE_CSV_FILE \
-        OUTPUT_GRADE_CSV \
+python3 src/general_judger.py     \
+        SOURCE_CSV_FILE           \
+        OUTPUT_GRADE_CSV          \
         [STARNDARD_SOLUTION_JSON]
 ```
 
@@ -15,11 +15,11 @@ Note that if `STARNDARD_SOLUTION_JSON` is not given, the default file name will 
 
 To check if the judger works normally, the grading of each possible response to each problem will be printed out. A better practice is 
 ```bash
-python3 src/general_judger.py \
-        SOURCE_CSV_FILE \
-        OUTPUT_GRADE_CSV \
-        [STARNDARD_SOLUTION_JSON]
-		> OUTPUT_LOG
+python3 src/general_judger.py     \
+        SOURCE_CSV_FILE           \
+        OUTPUT_GRADE_CSV          \
+        [STARNDARD_SOLUTION_JSON] \
+        > OUTPUT_LOG
 ```
 Then, you can see how many points are given to each possible response in each problem.
 
