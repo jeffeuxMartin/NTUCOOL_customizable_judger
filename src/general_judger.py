@@ -141,12 +141,34 @@ TA_answer = TA_answer[0]
 # endregion
 # region -------------- ADJUST -------------------- #
 if "HW15" in args.COOL_FILE:
-    TA_answer[22 - 1] = [
+    optionA = ("For a meta-batch, MAML updates the mo"
+        "del parameters in the outer-loop after it ha"
+        "s finished all the inner-loop steps. But wit"
+        "h multi-Step loss optimization, it minimizes"
+        " the target set loss computed by the base-ne"
+        "twork after every step towards a support set"
+        " task.").replace(',', "\\,")
+    optionB = ("Learning a learning rate and directio"
+        "n for each layer in the network is better th"
+        "an learning a learning rate and gradient dir"
+        "ection for each parameter in the base-networ"
+        "k since the latter causes increased number o"
+        "f parameters and increased computational ove"
+        "rhead.").replace(',', "\\,")
+    optionD = ("Learning a set of biases per-step wit"
+        "hin the inner-loop update process may help f"
+        "ix the shared (across step) batch normalizat"
+        "ion bias problem of the original MAML traini"
+        "ng method.").replace(',', "\\,")
+    
+    TA_answer[22 - 1] = [','.join(combi) for combi in [
         # original answer
-        'For a meta-batch\\, MAML updates the model parameters in the outer-loop after it has finished all the inner-loop steps. But with multi-Step loss optimization\\, it minimizes the target set loss computed by the base-network after every step towards a support set task.,Learning a learning rate and direction for each layer in the network is better than learning a learning rate and gradient direction for each parameter in the base-network since the latter causes increased number of parameters and increased computational overhead.',
+        [optionA, optionB],
         # other answers
-        'For a meta-batch\\, MAML updates the model parameters in the outer-loop after it has finished all the inner-loop steps. But with multi-Step loss optimization\\, it minimizes the target set loss computed by the base-network after every step towards a support set task.,Learning a set of biases per-step within the inner-loop update process may help fix the shared (across step) batch normalization bias problem of the original MAML training method.',
-        'Learning a set of biases per-step within the inner-loop update process may help fix the shared (across step) batch normalization bias problem of the original MAML training method.,Learning a learning rate and direction for each layer in the network is better than learning a learning rate and gradient direction for each parameter in the base-network since the latter causes increased number of parameters and increased computational overhead.']
+        [optionA, optionD],
+        [optionB, optionD],
+        [optionA, optionB, optionD]]]
+
 elif "HW14" in args.COOL_FILE:
     # TA_answer[3 - 1] = [
     #     '『多任務學習是希望一個模型可以處理很多不同的任務，所以在訓練時，會將所有任務的訓練資料倒在一起，變成一個巨量的訓練資料，一次使用多個任務的訓練資料以及對應的目標函數一起更新模型的參數。』 “Multi-task learning hopes that a model can handle many different tasks. Therefore, during training, the training data of all tasks will be poured together to become a huge amount of training data. Using the training data of multiple tasks and the corresponding objective functions to update the parameters of the model at a time.”',
